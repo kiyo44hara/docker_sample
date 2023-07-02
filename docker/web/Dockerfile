@@ -1,9 +1,5 @@
-version: "3.9"
+FROM nginx:1.20-alpine
 
-services:
-  app:    // サービス名
-    build:
-      context: .
-      dockerfile: ./docker/app/Dockerfile
-    volumes:
-      - ./src/:/app
+ENV TZ Asia/Tokyo
+
+COPY ./docker/web/default.conf /etc/nginx/conf.d/default.conf
